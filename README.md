@@ -477,7 +477,7 @@
     ```
 
 
-## <a name='other'>實際操作</a>
+## <a name='onboard'>實際操作</a>
 
  1. 用純 CSS 創建一個三角形
 
