@@ -30,59 +30,96 @@
 
     A:
     ```
+    讓瀏覽器知道以下的 html 是用哪一套規範作的
     ```
 
  1. inline 元素有哪些？block 元素有哪些？
 
     A:
     ```
+    inline: span, button, input, label, select, textarea
+    block: h1~h5, div, p
     ```
 
  1. html5有哪些新特性、移除了那些元素？如何處理HTML5新標簽的瀏覽器兼容問題？如何區分 HTML 和 HTML5？
 
     A:
     ```
+    <article> <header> <footer> <nav> <figure> <figcaption> input多了好幾項type
+    <!DOCTYPE html> html的 doctype 寫法 (case insensitive)
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]--> like in bootstrap
     ```
  1. HTML 語義化的理解？ (寫)描述一段語義的 html 代碼吧。
 
     A:
     ```
+    <figure>
+        <img src="/url" alt="image..." />
+        <figcaption>
+            <p>Image information </p>
+        </figcaption>
+    </figure>
     ```
 
  1. HTML5的離線儲存？
 
     A:
     ```
+    localStorage sessionStorage
     ```
 
  1. 瀏覽器是怎麼對 HTML5 的離線儲存資源進行管理和加載的呢？
 
     A:
     ```
+    // window.sessionStorage
+    window.localStorage.getItem('key');
+    window.localStorage.removeItem('key');
+    window.localStorage.setItem('key', value);
+    window.localStorage.clear();
     ```
 
  1. 請描述一下 cookies，sessionStorage 和 localStorage 的區別？
 
     A:
     ```
+    localStorage 沒有 expiration time
+    sessionStorage 在 每個 page session 新生成一個 結束就被刪掉
+    (一個 tab 或 window 開啟時， restore 或 refresh 後都還在)
+    cookies 的壽命是 window 開關的期間，關閉後被瀏覽器存起來 大小有4k的限制
     ```
 
  1. Label 的作用是什麼？是怎麼用的？
 
     A:
     ```
+    標示 input
+    可以用
+    <label for="123">
+    <input id="123">
+    或是
+    <label>
+        <input>
+    </label>
+
     ```
 
  1. 如何實現瀏覽器內多個標簽頁之間的通信?
 
     A:
     ```
+    localStorage, cookies
     ```
 
  1. webSocket 如何相容低瀏覽器？
 
     A:
     ```
+
     ```
 
  1. Page Visibility API 可以有哪些範例？
@@ -103,30 +140,47 @@
 
     A:
     ```
+    content padding border margin
     ```
 
  1. CSS 選擇器有哪些？哪些屬性可以繼承？優先級算法如何計算？ CSS3 新增偽類有那些？
 
     A:
     ```
+    * .class #id element(, > + )
+    !important style id class element
+    :nth-child
+    :first-child
+    :last-child
+
     ```
 
  1. 列出 display 的值，說明他們的作用。position 的值， relative 和 absolute 定位原點是？
 
     A:
     ```
+    display: block, inline-block, inline, flex, none
+    position: static, relative, fixed, absolute
+    relative(是相對於原本常規文件流)
+    absolute(是相對於上一個 positioned 的 element)
     ```
 
  1. 為什麼要初始化CSS樣式。
 
     A:
     ```
+    避免瀏覽器不同的 default 造成的問題。
     ```
 
  1. 請解釋一下 CSS3 的 Flexbox? 已經適用場景？
 
     A:
     ```
+    可以在元素的 layout 被定義的比較 declarative
+    在 container 加上 display: flex;
+    child  flex: '', '', '';
+    child 在 main axis 和 cross axis 上的排列也可以很好的被定義
+    responsive 的 design
     ```
 
  1. li 與 li 之間有看不見的空白間隔是什麼原因引起的？有什麼解決辦法？
@@ -232,6 +286,7 @@
 
     A:
     ```
+    null, undefined, number, string, object, boolean
     ```
 
  1. 說幾條寫JavaScript的基本規範？
@@ -244,24 +299,31 @@
 
     A:
     ```
+    Objecy.prototype
     ```
 
  1. Javascript如何實現繼承？
 
     A:
     ```
+    es5: Object.create('inherited')
+    es6: class ... extends 'inherited'
     ```
 
  1. 如何創建一個對像 ？
 
     A:
     ```
+    var a = {
+
+    };
     ```
 
  1. 談談This對像的理解？
 
     A:
     ```
+    dynamic binding
     ```
 
  1. eval是做什麼的？
@@ -274,6 +336,8 @@
 
     A:
     ```
+    window 就是瀏覽器的視窗
+    document 只當下的那份文件
     ```
 
  1. null，undefined的區別？
@@ -286,6 +350,7 @@
 
     A:
     ```
+    something.addEventLister('eventName', callback);
     ```
 
  1. ["1", "2", "3"].map(parseInt) 答案是多少？
